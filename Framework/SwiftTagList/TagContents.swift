@@ -16,11 +16,12 @@ public class TagContentText: TagContent {
         return label.intrinsicContentSize
     }
     
-    public override init(tag: String) {
-        super.init(tag: tag)
+    public override init(tag: String,color: UIColor) {
+        super.init(tag: tag,color : color)
         
         addSubview(label)
         
+        label.textColor = color
         label.translatesAutoresizingMaskIntoConstraints = false
         addConstraint(NSLayoutConstraint(item: label, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1, constant: 0))
         addConstraint(NSLayoutConstraint(item: label, attribute: .width, relatedBy: .equal, toItem: self, attribute: .width, multiplier: 1, constant: 0))
@@ -44,9 +45,9 @@ public class TagContentIcon: TagContent {
         return CGSize(width: height, height: height)
     }
     
-    public init(tag: String, height: CGFloat) {
+    public init(tag: String, height: CGFloat,color : UIColor) {
         self.height = height
-        super.init(tag: tag)
+        super.init(tag: tag,color : color)
         
         addSubview(icon)
         
@@ -76,8 +77,8 @@ public class TagContentIconText: TagContent {
         return CGSize(width: labelSize.width + labelSize.height + space, height: labelSize.height)
     }
     
-    public override init(tag: String) {
-        super.init(tag: tag)
+    public override init(tag: String, color : UIColor) {
+        super.init(tag: tag,color : color)
         
         addSubview(icon)
         addSubview(label)

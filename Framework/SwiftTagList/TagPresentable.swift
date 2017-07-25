@@ -13,5 +13,5 @@ public protocol TagPresentable {
     var tag: String { get }
     var isSelected: Bool { get set }
     
-    func createTagContent() -> TagContent
+    func createTagContent(color : UIColor) -> TagContent
 }

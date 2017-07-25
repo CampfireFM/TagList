@@ -19,8 +19,8 @@ public struct TagPresentableText: TagPresentable {
         self.onInit = onInit
     }
     
-    public func createTagContent() -> TagContent {
-        let tagContent = TagContentText(tag: tag)
+    public func createTagContent(color : UIColor) -> TagContent {
+        let tagContent = TagContentText(tag: tag,color : color)
         onInit?(tagContent)
         return tagContent
     }
@@ -41,8 +41,8 @@ public struct TagPresentableIcon: TagPresentable {
         self.onInit = onInit
     }
     
-    public func createTagContent() -> TagContent {
-        let tagContent = TagContentIcon(tag: tag, height: height)
+    public func createTagContent(color : UIColor) -> TagContent {
+        let tagContent = TagContentIcon(tag: tag, height: height, color : UIColor.green)
         tagContent.icon.image = UIImage(named: icon)
         onInit?(tagContent)
         return tagContent
@@ -63,8 +63,8 @@ public struct TagPresentableIconText: TagPresentable {
         self.onInit = onInit
     }
     
-    public func createTagContent() -> TagContent {
-        let tagContent = TagContentIconText(tag: tag)
+    public func createTagContent(color : UIColor) -> TagContent {
+        let tagContent = TagContentIconText(tag: tag,color: UIColor.green)
         tagContent.icon.image = UIImage(named: icon)
         onInit?(tagContent)
         return tagContent

@@ -34,8 +34,8 @@ open class TagContent: UIView, TagActionable, TagStatable {
     weak var stateDelegate: TagStateDelegate?
     
     private(set) var content: String
-    
-    public init(tag: String) {
+
+    public init(tag: String, color : UIColor) {
         self.content = tag
         super.init(frame: CGRect.zero)
     }

@@ -249,6 +249,7 @@ class ViewController: UIViewController {
         default:
             newPresent = TagPresentableText(tag: tagStr) {
                 $0.label.font = UIFont.systemFont(ofSize: 16)
+                
             }
         }
         let tag = Tag(content: newPresent, onInit: {
@@ -257,8 +258,12 @@ class ViewController: UIViewController {
                 $0.layer.borderWidth = 2
                 $0.layer.cornerRadius = 5
                 $0.backgroundColor = UIColor.white
+                $0.selectedColor = UIColor.red
+                $0.normalColor = UIColor.yellow
             }, onSelect: {
+            
             $0.backgroundColor = $0.isSelected ? UIColor.orange : UIColor.white
+                
         })
         if swiDelete {
             tag.wrappers = [TagWrapperRemover(onInit: {

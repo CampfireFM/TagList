@@ -49,6 +49,26 @@ open class Tag: UIView {
     }
     
     private var tagContent: TagContent!
+    private var selectedTagColor : UIColor = UIColor.black
+    private var normalTagColor : UIColor = UIColor.black
+    public var selectedColor : UIColor {
+        get {
+            return selectedTagColor
+        }
+        set {
+            selectedTagColor = newValue
+        }
+    }
+    
+    public var normalColor : UIColor {
+        get {
+            return normalTagColor
+        }
+        set {
+            normalTagColor = newValue
+        }
+    }
+
     private var wrapped: TagWrapper!
     private var tapGestureRecognizer: UITapGestureRecognizer!
     private var onSelect: ((Tag) -> Void)?
@@ -80,8 +100,11 @@ open class Tag: UIView {
         subviews.forEach { (view) in
             view.removeFromSuperview()
         }
-        
-        tagContent = content.createTagContent()
+        if isSelected{
+            tagContent = content.createTagContent(color: self.selectedTagColor)
+        }else{
+             tagContent = content.createTagContent(color: self.normalTagColor)
+        }
         tagContent.actionDelegate = self
         stateDelegate = tagContent
         
